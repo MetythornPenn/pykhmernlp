@@ -4,8 +4,6 @@ Trie data structure.
 Designed to be used for tokenizer's dictionary, but can be for other purposes.
 """
 from typing import Iterable, Iterator, List, Union, FrozenSet
-
-# from typing import FrozenSet, List, Union
 import warnings
 import re
 from collections import defaultdict
@@ -16,10 +14,8 @@ from _utils import (
     strip_whitespace,
 )
 
-
-
 _KHMER_WORDS: FrozenSet[str] = frozenset()
-_KHMER_WORDS_FILENAME = "khm_eng_dict.txt"
+_KHMER_WORDS_FILENAME = "khmer_words.txt"
 
 
 

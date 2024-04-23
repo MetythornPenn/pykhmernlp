@@ -1,5 +1,2 @@
-PyYAML
 numpy
-# python-crfsuite==0.9.*
-requests
 streamlit
