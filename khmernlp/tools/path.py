@@ -2,9 +2,9 @@
 # SPDX-FileCopyrightText: 2016-2024 PyThaiNLP Project
 # SPDX-License-Identifier: Apache-2.0
 """
-PyThaiNLP data tools
+khmernlp data tools
 
-For text processing and text conversion, see pythainlp.util
+For text processing and text conversion, see khmernlp.util
 """
 import os
 
