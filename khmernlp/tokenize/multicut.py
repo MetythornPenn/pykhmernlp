@@ -19,7 +19,7 @@ from _utils import (
 
 
 _KHMER_WORDS: FrozenSet[str] = frozenset()
-_KHMER_WORDS_FILENAME = "khmer_words.txt"
+_KHMER_WORDS_FILENAME = "khm_eng_dict.txt"
 
 
 
