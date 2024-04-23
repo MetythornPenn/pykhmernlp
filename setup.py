@@ -1,39 +1,21 @@
-﻿# -*- coding: utf-8 -*-
-# SPDX-FileCopyrightText: 2016-2024 PyThaiNLP Project
-# SPDX-License-Identifier: Apache-2.0
-"""
-Setup script for PyThaiNLP.
-
-https://github.com/PyThaiNLP/pythainlp
-"""
-from setuptools import find_packages, setup
+﻿from setuptools import find_packages, setup
 
 readme = """
-![PyThaiNLP Logo](https://avatars0.githubusercontent.com/u/32934255?s=200&v=4)
 
-PyThaiNLP is a Python library for Thai natural language processing.
-The library provides functions like word tokenization, part-of-speech tagging,
+KhmerNLP is a Python library for Khmer natural language processing.
+The library provides functions like word tokenization, khmer corpus,
 transliteration, soundex generation, spell checking, and
 date and time parsing/formatting.
 
-Website: [pythainlp.github.io](https://pythainlp.github.io/)
 
 # Install
 
 For stable version:
 
 ```sh
-pip install pythainlp
+pip install khmernlp
 ```
 
-For development version:
-
-```sh
-pip install --upgrade --pre pythainlp
-```
-
-Some functionalities, like named-entity recognition, require extra packages.
-See https://github.com/PyThaiNLP/pythainlp for installation options.
 """
 
 requirements = [
@@ -160,19 +142,19 @@ extras = {
 }
 
 setup(
-    name="pythainlp",
-    version="5.0.2",
-    description="Thai Natural Language Processing library",
+    name="khmernlp",
+    version="0.0.1",
+    description="Khmer Natural Language Processing library",
     long_description=readme,
     long_description_content_type="text/markdown",
-    author="PyThaiNLP",
-    author_email="email@wannaphong.com",
-    url="https://github.com/PyThaiNLP/pythainlp",
+    author="MetythornPenn",
+    author_email="metythorn@gmail.com",
+    url="https://github.com/metythornpenn/khmernlp",
     packages=find_packages(exclude=["tests", "tests.*"]),
     test_suite="tests",
     python_requires=">=3.7",
     package_data={
-        "pythainlp": [
+        "khmernlp": [
             "corpus/*",
         ],
     },
@@ -182,39 +164,23 @@ setup(
     license="Apache Software License 2.0",
     zip_safe=False,
     keywords=[
-        "pythainlp",
+        "khmernlp",
         "NLP",
         "natural language processing",
         "text analytics",
         "text processing",
-        "localization",
-        "computational linguistics",
-        "ThaiNLP",
-        "Thai NLP",
-        "Thai language",
-    ],
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 3",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: Apache Software License",
-        "Natural Language :: Thai",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence",
-        "Topic :: Text Processing",
-        "Topic :: Text Processing :: General",
-        "Topic :: Text Processing :: Linguistic",
+        "KhmerNLP",
+        "Khmer NLP",
+        "Khmer language",
     ],
     entry_points={
         "console_scripts": [
-            "thainlp = pythainlp.__main__:main",
+            "khmernlp = khmernlp.__main__:main",
         ],
     },
     project_urls={
-        "Documentation": "https://pythainlp.github.io/docs/5.0/",
-        "Tutorials": "https://pythainlp.github.io/tutorials/",
-        "Source Code": "https://github.com/PyThaiNLP/pythainlp",
-        "Bug Tracker": "https://github.com/PyThaiNLP/pythainlp/issues",
+        "Source Code": "https://github.com/metythornpenn/khmernlp",
+    
     },
 )
 
-# TODO: Check extras and decide whether or not additional data, like model files, should be downloaded

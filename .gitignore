@@ -118,3 +118,10 @@ notebooks/iso_11940-dev.ipynb
 
 # vscode devcontainer
 .devcontainer/
+
+NOTED.md/
+docs/
+notebooks/
+test.ipynb
+test_pythainlp/
+pythainlp/
