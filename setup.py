@@ -17,18 +17,8 @@ requirements = [
 
 setup(
     name='pykhmernlp',
-    version='0.1.5',
+    version='0.1.6',
     packages=['pykhmernlp'],
-    include_package_data=True,
-    package_data={
-        'pykhmernlp': [
-            'corpus/*',
-            'address/phum/*.txt',
-            'address/khum/*.txt',
-            'address/srok/*.txt',
-            'address/province/*.txt'
-        ]
-    },
     url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
     author = 'Metythorn Penn',
