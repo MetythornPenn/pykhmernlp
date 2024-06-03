@@ -18,7 +18,7 @@ requirements = [
 setup(
     name='pykhmernlp',
     version='0.1.5',
-    packages=['sdab'],
+    packages=['pykhmernlp'],
     include_package_data=True,
     package_data={
         'pykhmernlp': [
