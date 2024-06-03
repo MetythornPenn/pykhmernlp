@@ -1,92 +1,41 @@
-# -*- coding: utf-8 -*-
-# SPDX-FileCopyrightText: 2016-2024 PyThaiNLP Project
-# SPDX-License-Identifier: Apache-2.0
-"""
-Corpus related functions.
+import re
+import pandas as pd
 
-Access to dictionaries, word lists, and language models.
-Including download manager.
-"""
-
-__all__ = [
-    # "corpus_db_path",
-    # "corpus_db_url",
-    # "corpus_path",
-    # "countries",
-    # "download",
-    # "find_synonyms",
-    # "get_corpus",
-    # "get_corpus_as_is",
-    # "get_corpus_db",
-    # "get_corpus_db_detail",
-    # "get_corpus_default_db",
-    # "get_corpus_path",
-    # "get_path_folder_corpus",
-    # "path_pythainlp_corpus",
-    # "provinces",
-    # "remove",
-    "khmer_words",
-
-]
-
-import os
-
-from pythainlp.tools import get_full_data_path, get_pythainlp_path
-
-# Remote and local corpus databases
-
-_CORPUS_DIRNAME = "corpus"
-_CORPUS_PATH = os.path.join(get_pythainlp_path(), _CORPUS_DIRNAME)
-_CHECK_MODE = os.getenv("PYTHAINLP_READ_MODE")
-
-# URL of remote corpus catalog
-_CORPUS_DB_URL = "https://pythainlp.github.io/pythainlp-corpus/db.json"
-
-# filename of local corpus catalog
-_CORPUS_DB_FILENAME = "db.json"
-
-# full path of local corpus catalog
-_CORPUS_DB_PATH = get_full_data_path(_CORPUS_DB_FILENAME)
-
-# create a local corpus database if it does not already exist
-if not os.path.exists(_CORPUS_DB_PATH) and _CHECK_MODE != "1":
-    with open(_CORPUS_DB_PATH, "w", encoding="utf-8") as f:
-        f.write(r'{"_default": {}}')
+KHMER_WORDS_PATH = 'khmernlp/corpus/icu_words.txt'
+ENGLISH_WORDS_PATH = 'khmernlp/corpus/english_words.txt'
+KHMER_DICTIONARY_PATH = 'khmernlp/corpus/khmer_dictionary.xlsx'
 
 
-def corpus_path() -> str:
-    """
-    Get path where corpus files are kept locally.
-    """
-    return _CORPUS_PATH
+
+def load_khmer_dictionary(file_path):
+    df = pd.read_excel(file_path)
+    return df
 
 
-def corpus_db_url() -> str:
-    """
-    Get remote URL of corpus catalog.
-    """
-    return _CORPUS_DB_URL
+def km2km_dict(word):
+    dictionary_df = load_khmer_dictionary(KHMER_DICTIONARY_PATH)
+    entries = dictionary_df[dictionary_df['t_main'] == word]
+    result = []
+    for _, row in entries.iterrows():
+        entry = {
+            'word': row['t_main'],
+            'pronounce': row['t_pron'],
+            'pos': row['t_pos'],
+            'definition': row['t_exp'],
+            'example': row['t_exam']
+        }
+        result.append(entry)
+    return result
 
 
-def corpus_db_path() -> str:
-    """
-    Get local path of corpus catalog.
-    """
-    return _CORPUS_DB_PATH
+
+def km_words():
+    with open(KHMER_WORDS_PATH, 'r', encoding='utf-8-sig') as file:
+        words = [line.strip() for line in file if line.strip()]
+    return words
 
 
-from khmernlp.corpus.core import (
-    download,
-    get_corpus,
-    get_corpus_as_is,
-    get_corpus_db,
-    get_corpus_db_detail,
-    get_corpus_default_db,
-    get_corpus_path,
-    get_path_folder_corpus,
-    path_pythainlp_corpus,
-    remove,
-)  # these imports must come before other pythainlp.corpus.* imports
-from khmernlp.corpus.common import (
-    khmer_words,
-)
+def en_words():
+    with open(ENGLISH_WORDS_PATH, 'r', encoding='utf-8-sig') as file:
+        words = [line.strip() for line in file if line.strip()]
+    return words

@@ -1,10 +1,10 @@
-# Khmernlp is collecting of toolkit for khmer language 
+## khmernlp 
+
+Khmer Language Toolkit.
 
 
+## Install
 
-### Ref 
-- https://www.patanasongsivilai.com/blog/tudkumthai/
-
-- https://tupleblog.github.io/deepcut-classify-news/
-- https://github.com/PyThaiNLP/thaigov-corpus
-
+```shell
+pip install khmernlp
+```
