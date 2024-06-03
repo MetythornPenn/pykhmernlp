@@ -190,8 +190,8 @@ cython_debug/
 #.idea/
 
 
-notebook/
+notebook
 tests_pythainlp
-tha/
-pythainlp/
-khmernlp-backup/
+tha
+pythainlp
+khmernlp-backup
