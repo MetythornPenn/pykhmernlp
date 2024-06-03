@@ -11,9 +11,8 @@ requirements = [
     "regex",
     "pandas",
     "openpyxl",
-    "khmercut",
+    # "khmercut",
     "khmerpronounce",
-    "importlib_resources",
 ]
 
 setup(

@@ -1,6 +1,6 @@
 ## PyKhmerNLP 
 
-Khmer Language Toolkit.
+Collection of Khmer Language Toolkits.
 
 
 ## Install
