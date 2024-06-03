@@ -1,9 +1,9 @@
 import os
 
-PHUM_PATH = 'khmernlp/address/address_data/phum/'
-KHUM_PATH = 'khmernlp/address/address_data/khum/'
-SROK_PATH = 'khmernlp/address/address_data/srok/'
-PROVINCE_PATH = 'khmernlp/address/address_data/province/'
+PHUM_PATH = 'km_nlp/address/address_data/phum/'
+KHUM_PATH = 'km_nlp/address/address_data/khum/'
+SROK_PATH = 'km_nlp/address/address_data/srok/'
+PROVINCE_PATH = 'km_nlp/address/address_data/province/'
 
 def _list_data(path, province='all'):
     """

@@ -15,14 +15,14 @@ requirements = [
 ]
 
 setup(
-    name='khmernlp',
+    name='km_nlp',
     version='0.1.0',
-    packages=['khmernlp'],
-    url='https://github.com/MetythornPenn/khmernlp.git',
+    packages=['km_nlp'],
+    url='https://github.com/MetythornPenn/khmer_toolkits.git',
     license='Apache Software License 2.0',
     author = 'Metythorn Penn',
     author_email = 'metythorn@gmail.com',
-    keywords='khmernlp',
+    keywords='km_nlp',
     description='Khmer language toolkits',
     install_requires=requirements,
     long_description=(read('README.md')),

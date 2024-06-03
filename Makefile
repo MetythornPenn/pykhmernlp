@@ -1,7 +1,7 @@
 install:
-	rm -rf *.egg-info/ dist/ khmernlp.egg-info
+	rm -rf *.egg-info/ dist/ km_nlp.egg-info
 	pip install -e .
 
 remove:
-	pip uninstall khmernlp -y
+	pip uninstall km_nlp -y
 
