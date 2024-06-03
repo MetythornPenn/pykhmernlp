@@ -15,15 +15,15 @@ requirements = [
 ]
 
 setup(
-    name='sdab',
-    version='0.1.2',
-    packages=['sdab'],
-    url='https://github.com/MetythornPenn/sdab.git',
+    name='khmernlp',
+    version='0.1.0',
+    packages=['khmernlp'],
+    url='https://github.com/MetythornPenn/khmernlp.git',
     license='Apache Software License 2.0',
     author = 'Metythorn Penn',
     author_email = 'metythorn@gmail.com',
-    keywords='asr',
-    description='Khmer Speech To Text Inference API using Wav2Vec2 with Pretrain Model',
+    keywords='khmernlp',
+    description='Khmer language toolkits',
     install_requires=requirements,
     long_description=(read('README.md')),
     long_description_content_type='text/markdown',
