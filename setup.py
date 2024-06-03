@@ -26,5 +26,8 @@ setuptools.setup(
     "tha",
     "regex",
     "pandas",
+    "openpyxl",
+    "khmercut",
+    "khmerpronounce"
   ],
 )

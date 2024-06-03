@@ -1,6 +1,7 @@
-build:
-	rm -rf *.egg-info/ dist/ tha/__pycache__
-	python setup.py sdist
+install:
+	rm -rf *.egg-info/ dist/ khmernlp.egg-info
+	pip install -e .
 
-upload:
-	twine upload dist/*
+remove:
+	pip uninstall khmernlp -y
+
