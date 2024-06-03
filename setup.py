@@ -1,5 +1,5 @@
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 def read(*paths):
@@ -17,7 +17,7 @@ requirements = [
 
 setup(
     name='pykhmernlp',
-    version='0.1.6',
+    version='0.1.7',
     packages=['pykhmernlp'],
     url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
