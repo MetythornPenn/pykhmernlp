@@ -1,9 +1,15 @@
 import os
+from pathlib import Path
 
-PHUM_PATH = 'pykhmernlp/address/address_data/phum/'
-KHUM_PATH = 'pykhmernlp/address/address_data/khum/'
-SROK_PATH = 'pykhmernlp/address/address_data/srok/'
-PROVINCE_PATH = 'pykhmernlp/address/address_data/province/'
+
+# Get the directory of the current script
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+PHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'phum')
+KHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'khum')
+SROK_PATH = os.path.join(CURRENT_DIR, 'address_data', 'srok')
+PROVINCE_PATH = os.path.join(CURRENT_DIR, 'address_data', 'province')
+
 
 def _list_data(path, province='all'):
     """
@@ -76,6 +82,6 @@ def km_provinces():
     Returns:
         List[str]: A list of provinces.
     """
-    with open(os.path.join(PROVINCE_PATH, 'province.txt'), 'r', encoding='utf-8-sig') as file:
+    with open(PROVINCE_PATH / 'province.txt', 'r', encoding='utf-8-sig') as file:
         provinces = [line.strip() for line in file if line.strip()]
     return provinces
