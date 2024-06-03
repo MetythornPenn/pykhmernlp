@@ -3,5 +3,5 @@ install:
 	pip install -e .
 
 remove:
-	pip uninstall km_nlp -y
+	pip uninstall pykhmernlp -y
 

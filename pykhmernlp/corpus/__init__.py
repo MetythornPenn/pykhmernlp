@@ -1,10 +1,10 @@
 import re
 import pandas as pd
 
-KHMER_WORDS_PATH = 'km_nlp/corpus/icu_words.txt'
-ENGLISH_WORDS_PATH = 'km_nlp/corpus/english_words.txt'
-KHMER_DICTIONARY_PATH = 'km_nlp/corpus/khmer_dictionary.xlsx'
-ENGLISH_DICTIONARY_PATH = 'km_nlp/corpus/english_dictionary.tsv'
+KHMER_WORDS_PATH = 'pykhmernlp/corpus/icu_words.txt'
+ENGLISH_WORDS_PATH = 'pykhmernlp/corpus/english_words.txt'
+KHMER_DICTIONARY_PATH = 'pykhmernlp/corpus/khmer_dictionary.xlsx'
+ENGLISH_DICTIONARY_PATH = 'pykhmernlp/corpus/english_dictionary.tsv'
 
 
 

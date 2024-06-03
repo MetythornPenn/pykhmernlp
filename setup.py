@@ -1,5 +1,6 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
+
 
 def read(*paths):
     with open(os.path.join(*paths), 'r') as f:
@@ -11,19 +12,30 @@ requirements = [
     "pandas",
     "openpyxl",
     "khmercut",
-    "khmerpronounce"
+    "khmerpronounce",
+    "importlib_resources",
 ]
 
 setup(
-    name='km_nlp',
-    version='0.1.1',
-    packages=['km_nlp'],
-    url='https://github.com/MetythornPenn/khmer_toolkits.git',
+    name='pykhmernlp',
+    version='0.1.2',
+    packages=find_packages(),
+    include_package_data=True,
+    package_data={
+        'pykhmernlp': [
+            'corpus/*',
+            'address/phum/*.txt',
+            'address/khum/*.txt',
+            'address/srok/*.txt',
+            'address/province/*.txt'
+        ]
+    },
+    url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
     author = 'Metythorn Penn',
     author_email = 'metythorn@gmail.com',
-    keywords='km_nlp',
-    description='Khmer language toolkits',
+    keywords='pykhmernlp',
+    description='Collection of Khmer language toolkits',
     install_requires=requirements,
     long_description=(read('README.md')),
     long_description_content_type='text/markdown',

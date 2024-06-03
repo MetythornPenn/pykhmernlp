@@ -1,19 +1,16 @@
-## km_nlp 
+## PyKhmerNLP 
 
 Khmer Language Toolkit.
 
 
 ## Install
 
-### Install from PYPI
-
-```shell
-pip install km_nlp
-```
 
 ### Install from Source
 
 ```shell
+git clone https://github.com/MetythornPenn/pykhmernlp.git
+cd pykhmernlp
 pip install -e .
 ```
 
@@ -25,7 +22,7 @@ pip install -e .
 #### 1.1 Khmer words
 
 ```python
-from km_nlp.corpus import km_words
+from pykhmernlp.corpus import km_words
 
 km_words = km_words()
 print(f"Length of Khmer words {len(km_words)}")
@@ -38,7 +35,7 @@ print(km_words[:100])
 #### 1.2 English Word
 
 ```python
-from km_nlp.corpus import en_words
+from pykhmernlp.corpus import en_words
 
 en_words = en_words()
 
@@ -53,7 +50,7 @@ print(en_words[:100])
 #### 1.3 Khmer to Khmer Dictionary 
 
 ```python
-from km_nlp.corpus import km2km_dict
+from pykhmernlp.corpus import km2km_dict
 
 entries = km2km_dict('កក់ក្ដៅ')
 print(entries)
@@ -72,7 +69,7 @@ print(entries)
 #### 1.4 English to English Dictionary 
 
 ```python
-from km_nlp.corpus import en2en_dict
+from pykhmernlp.corpus import en2en_dict
 
 entries = en2en_dict('BooK')
 print(entries)
@@ -88,7 +85,7 @@ print(entries)
 ### 2. Tokenizer
 
 ```python
-from km_nlp.tokenizer import khmercut
+from pykhmernlp.tokenizer import khmercut
 
 khmercut("ឃាត់ខ្លួនជនសង្ស័យ០៤នាក់ ករណីលួចខ្សែភ្លើង នៅស្រុកព្រៃនប់")
 
@@ -100,7 +97,7 @@ khmercut("ឃាត់ខ្លួនជនសង្ស័យ០៤នាក់ 
 ### 3. Pronounce 
 
 ```python
-from km_nlp.pronounce import pronounce
+from pykhmernlp.pronounce import pronounce
 
 result1 = pronounce("សម្ដេចបវរធិបតី")
 print(result1)
@@ -116,7 +113,7 @@ print(result2)
 ### 4. Khmer Address
 
 ```python
-from km_nlp.address import (
+from pykhmernlp.address import (
     km_villages, 
     km_commune, 
     km_districts, 
