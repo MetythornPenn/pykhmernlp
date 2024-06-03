@@ -5,9 +5,18 @@ Khmer Language Toolkit.
 
 ## Install
 
+### Install from PYPI
+
 ```shell
 pip install khmernlp
 ```
+
+### Install from Source
+
+```shell
+pip install -e .
+```
+
 
 ## Usage 
 
