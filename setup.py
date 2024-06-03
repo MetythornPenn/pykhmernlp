@@ -16,7 +16,7 @@ requirements = [
 
 setup(
     name='km_nlp',
-    version='0.1.0',
+    version='0.1.1',
     packages=['km_nlp'],
     url='https://github.com/MetythornPenn/khmer_toolkits.git',
     license='Apache Software License 2.0',
