@@ -1,33 +1,36 @@
-import setuptools
+import os
+from setuptools import setup
 
-with open("README.md", "r") as f:
-  long_description = f.read()
-
-setuptools.setup(
-  name="khmernlp",
-  version="0.1.1",
-  description="Khmer Language Toolkit.",
-  long_description=long_description,
-  long_description_content_type="text/markdown",
-  url="https://github.com/MetythornPenn/khmernlp.git",
-  author="Metythorn Penn",
-  author_email="metythorn@gmail.com",
-  license="Apache License 2.0",
-  classifiers=[
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
-    "Intended Audience :: Developers",
-    "Natural Language :: English",
-  ],
-  python_requires=">3.5",
-  packages=setuptools.find_packages(),
-  package_dir={"khmernlp": "khmernlp"},
-  install_requires=[
+def read(*paths):
+    with open(os.path.join(*paths), 'r') as f:
+        return f.read()
+    
+requirements = [
     "tha",
     "regex",
     "pandas",
     "openpyxl",
     "khmercut",
     "khmerpronounce"
-  ],
+]
+
+setup(
+    name='sdab',
+    version='0.1.2',
+    packages=['sdab'],
+    url='https://github.com/MetythornPenn/sdab.git',
+    license='Apache Software License 2.0',
+    author = 'Metythorn Penn',
+    author_email = 'metythorn@gmail.com',
+    keywords='asr',
+    description='Khmer Speech To Text Inference API using Wav2Vec2 with Pretrain Model',
+    install_requires=requirements,
+    long_description=(read('README.md')),
+    long_description_content_type='text/markdown',
+	classifiers= [
+		'Natural Language :: English',
+		'License :: OSI Approved :: Apache Software License',
+		'Operating System :: OS Independent',
+		'Programming Language :: Python :: 3',
+	],
 )
