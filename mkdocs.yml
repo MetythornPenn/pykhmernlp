@@ -31,4 +31,10 @@ nav:
 - Features: features.md
 - Tutorial - User Guide:
   - tutorial/index.md
-  - tutorial/reference.md
+  - tutorial/corpus.md
+  - tutorial/address.md
+  - tutorial/tokenizer.md
+  - tutorial/pronounce.md
+  - tutorial/tha.md
+- Reference: reference.md
+- Support: support.md
