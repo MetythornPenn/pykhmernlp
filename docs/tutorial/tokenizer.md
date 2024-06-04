@@ -1,13 +1,1 @@
-### Tokenizer
-
-```python
-from pykhmernlp.tokenizer import khmercut
-
-khmercut("ឃាត់ខ្លួនជនសង្ស័យ០៤នាក់ ករណីលួចខ្សែភ្លើង នៅស្រុកព្រៃនប់")
-
-# Result: 
-# => ['ឃាត់ខ្លួន', 'ជនសង្ស័យ', '០៤', 'នាក់', ' ', 'ករណី', 'លួច', 'ខ្សែភ្លើង', ' ', 'នៅ', 'ស្រុក', 'ព្រៃនប់']
-
-```
-
 ::: pykhmernlp.tokenizer
