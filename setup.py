@@ -16,7 +16,7 @@ requirements = [
 
 setup(
     name='pykhmernlp',
-    version='0.0.3',
+    version='0.0.4',
     packages=['pykhmernlp'],
     url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
