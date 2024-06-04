@@ -11,13 +11,12 @@ requirements = [
     "regex",
     "pandas",
     "openpyxl",
-    # "khmercut",
     "khmerpronounce",
 ]
 
 setup(
     name='pykhmernlp',
-    version='0.1.7',
+    version='0.0.1',
     packages=['pykhmernlp'],
     url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
