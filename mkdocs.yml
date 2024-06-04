@@ -1,4 +1,4 @@
-# https://realpython.com/python-project-documentation-with-mkdocs/
+# Ref:  https://realpython.com/python-project-documentation-with-mkdocs/
 
 site_name: PyKhmerNLP
 site_description: Collection of Khmer Language Toolkits.
@@ -7,6 +7,7 @@ site_url: https://metythornpenn.github.io/pykhmernlp/
 
 theme:
   name: material
+  custom_dir: docs/
   palette:
   - media: '(prefers-color-scheme: light)'
     scheme: default
@@ -24,7 +25,36 @@ theme:
       name: Switch to light mode
 
 plugins:
-  - mkdocstrings
+  mkdocstrings:
+    handlers:
+      python:
+        options:
+          extensions:
+          - griffe_typingdoc
+          show_root_heading: true
+          show_if_no_docstring: true
+          preload_modules:
+          - httpx
+          - starlette
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          unwrap_annotated: true
+          filters:
+          - '!^_'
+          merge_init_into_class: true
+          docstring_section_style: spacy
+          signature_crossrefs: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+
+extra_css:
+- docs/css/termynal.css
+- docs/css/custom.css
+
+extra_javascript:
+- docs/js/termynal.js
+- docs/js/custom.js
 
 nav:
 - PyKhmerNLP: index.md
@@ -37,3 +67,24 @@ nav:
   - tutorial/tha.md
 - Reference: reference.md
 - Support: support.md
+
+markdown_extensions:
+  toc:
+    permalink: true
+  markdown.extensions.codehilite:
+    guess_lang: false
+  mdx_include:
+    base_path: docs
+  admonition: null
+  codehilite: null
+  extra: null
+  pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format ''
+  pymdownx.tabbed:
+    alternate_style: true
+  pymdownx.tilde: null
+  attr_list: null
+  md_in_html: null

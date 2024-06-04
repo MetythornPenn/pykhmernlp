@@ -1,6 +1,6 @@
 ### Pronounce 
 
-```python
+```Python hl_lines="2"
 from pykhmernlp.pronounce import pronounce
 
 result1 = pronounce("សម្ដេចបវរធិបតី")
