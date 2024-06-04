@@ -1,12 +1,20 @@
 import os
 import pandas as pd
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-KHMER_WORDS_PATH = os.path.join(CURRENT_DIR, 'icu_words.txt')
-ENGLISH_WORDS_PATH = os.path.join(CURRENT_DIR, 'english_words.txt')
-KHMER_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'khmer_dictionary.xlsx')
-ENGLISH_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'english_dictionary.tsv')
+# KHMER_WORDS_PATH = os.path.join(CURRENT_DIR, 'icu_words.txt')
+# ENGLISH_WORDS_PATH = os.path.join(CURRENT_DIR, 'english_words.txt')
+# KHMER_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'khmer_dictionary.xlsx')
+# ENGLISH_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'english_dictionary.tsv')
+
+import pkg_resources
+
+KHMER_WORDS_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/icu_words.txt')
+ENGLISH_WORDS_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_words.txt')
+KHMER_DICTIONARY_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/khmer_dictionary.xlsx')
+ENGLISH_DICTIONARY_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_dictionary.tsv')
+
 
 def load_khmer_dictionary(file_path):
     df = pd.read_excel(file_path)

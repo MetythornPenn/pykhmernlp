@@ -16,16 +16,19 @@ requirements = [
 
 setup(
     name='pykhmernlp',
-    version='0.0.5',
+    version='0.0.6',
     python_requires=">=3.7",
     packages=find_packages(exclude=["tests", "tests.*"]),
     package_data={
-        "pythainlp": [
-            "corpus/*",
-            "adddress/address_data/phum*",
-            "adddress/address_data/khum*",
-            "adddress/address_data/srok*",
-            "adddress/address_data/province*",
+        'pykhmernlp': [
+            'corpus/icu_words.txt',
+            'corpus/english_words.txt',
+            'corpus/khmer_dictionary.xlsx',
+            'corpus/english_dictionary.tsv',
+            'address_data/phum/*.txt',
+            'address_data/khum/*.txt',
+            'address_data/srok/*.txt',
+            'address_data/provice/province.txt',
         ],
     },
     include_package_data=True,

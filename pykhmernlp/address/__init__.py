@@ -3,12 +3,20 @@ from pathlib import Path
 
 
 # Get the directory of the current script
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-PHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'phum')
-KHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'khum')
-SROK_PATH = os.path.join(CURRENT_DIR, 'address_data', 'srok')
-PROVINCE_PATH = os.path.join(CURRENT_DIR, 'address_data', 'province')
+# PHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'phum')
+# KHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'khum')
+# SROK_PATH = os.path.join(CURRENT_DIR, 'address_data', 'srok')
+# PROVINCE_PATH = os.path.join(CURRENT_DIR, 'address_data', 'province')
+
+
+import pkg_resources
+
+PHUM_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/phum/')
+KHUM_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/khum/')
+SROK_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/srok/')
+PROVINCE_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/provice/provice.txt')
 
 
 def _list_data(path, province='all'):
@@ -82,6 +90,6 @@ def km_provinces():
     Returns:
         List[str]: A list of provinces.
     """
-    with open(PROVINCE_PATH / 'province.txt', 'r', encoding='utf-8-sig') as file:
+    with open(PROVINCE_PATH + '/' + 'province.txt', 'r', encoding='utf-8-sig') as file:
         provinces = [line.strip() for line in file if line.strip()]
     return provinces
