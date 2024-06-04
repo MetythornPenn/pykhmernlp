@@ -5,5 +5,11 @@ install:
 remove:
 	pip uninstall pykhmernlp -y
 
+build-docs:
+	mkdocs build
 
+deploy-docs:
+	mkdocs gh-deploy
 
+serve-docs:
+	mkdocs serve

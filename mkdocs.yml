@@ -1,4 +1,5 @@
-# mkdocs.yml
+# https://realpython.com/python-project-documentation-with-mkdocs/
+
 site_name: PyKhmerNLP
 site_description: Collection of Khmer Language Toolkits.
 site_url: https://metythornpenn.github.io/pykhmernlp/
@@ -26,8 +27,8 @@ plugins:
   - mkdocstrings
 
 nav:
-  - Calculation Docs: index.md
-  - tutorials.md
-  - How-To Guides: how-to-guides.md
-  - reference.md
-  - explanation.md
+- PyKhmerNLP: index.md
+- Features: features.md
+- Tutorial - User Guide:
+  - tutorial/index.md
+  - tutorial/reference.md
