@@ -58,6 +58,7 @@ extra_javascript:
 
 nav:
 - PyKhmerNLP: index.md
+- Installation: installation.md
 - Tutorial:
   - tutorial/corpus.md
   - tutorial/address.md

@@ -14,11 +14,9 @@ PyKhmerNLP is a library designed to process and analyze Khmer language data. It 
 - [Reference](reference.md)
 - [Support](support.md)
 
-
-
 ## Installation
 
-To install KhmerNLP, you can use pip:
+To install PyKhmerNLP, you can use pip:
 
 ```shell
 pip install pykhmernlp
@@ -32,7 +30,7 @@ cd pykhmernlp
 pip install -e .
 ```
 
-## Source Code 
+## Source Code
 
 Source Code available on [Github](https://github.com/MetythornPenn/pykhmernlp)
 
