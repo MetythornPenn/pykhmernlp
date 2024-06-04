@@ -58,8 +58,7 @@ extra_javascript:
 
 nav:
 - PyKhmerNLP: index.md
-- Features: features.md
-- Tutorial - User Guide:
+- Tutorial:
   - tutorial/corpus.md
   - tutorial/address.md
   - tutorial/tokenizer.md
