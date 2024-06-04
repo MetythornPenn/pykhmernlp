@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def read(*paths):
@@ -17,7 +17,19 @@ requirements = [
 setup(
     name='pykhmernlp',
     version='0.0.4',
-    packages=['pykhmernlp'],
+    python_requires=">=3.7",
+    packages=find_packages(exclude=["tests", "tests.*"]),
+    package_data={
+        "pythainlp": [
+            "corpus/*",
+            "adddress/address_data/phum*",
+            "adddress/address_data/khum*",
+            "adddress/address_data/srok*",
+            "adddress/address_data/province*",
+        ],
+    },
+    include_package_data=True,
+    zip_safe=False,
     url='https://github.com/MetythornPenn/pykhmernlp.git',
     license='Apache Software License 2.0',
     author = 'Metythorn Penn',
