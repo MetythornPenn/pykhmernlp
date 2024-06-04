@@ -1,7 +1,9 @@
 install:
-	rm -rf *.egg-info/ dist/ km_nlp.egg-info
+	rm -rf *.egg-info/ dist/ pykhmernlp.egg-info
 	pip install -e .
 
 remove:
 	pip uninstall pykhmernlp -y
+
+
 
