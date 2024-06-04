@@ -12,3 +12,5 @@ print(result2)
 # => ['មៈ', 'កៈ', 'រ៉ា']
 
 ```
+
+::: pykhmernlp.pronounce

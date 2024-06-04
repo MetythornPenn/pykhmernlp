@@ -63,3 +63,5 @@ print(entries)
 #   'definition': 'A collection of sheets of paper, or similar material....
 # }]
 ```
+
+::: pykhmernlp.corpus

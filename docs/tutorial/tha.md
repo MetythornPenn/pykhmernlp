@@ -103,3 +103,5 @@ assert process_repeater("គាត់បានទៅបន្តិចម្ដ�
 print("All tests passed!")
 
 ```
+
+::: pykhmernlp.tha
