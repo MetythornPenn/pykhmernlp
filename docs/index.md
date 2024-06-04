@@ -5,7 +5,7 @@ PyKhmerNLP is a library designed to process and analyze Khmer language data. It 
 ## Table of Contents
 
 - [Installation](installation.md)
-- [Features](tutorial/index.md)
+- [Tutorial]()
     - [Address](tutorial/address.md)
     - [Corpus](tutorial/corpus.md)
     - [Pronounce](tutorial/pronounce.md)
