@@ -2,6 +2,9 @@
 
 Collections of Khmer Language Toolkit.
 
+### Documentations 
+Check out documentations with [mkdocs](https://metythornpenn.github.io/pykhmernlp/)
+
 ## Install
 
 ### Install from Source
