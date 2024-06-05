@@ -1,66 +1,62 @@
-import os
-import pandas as pd
-
-# CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# KHMER_WORDS_PATH = os.path.join(CURRENT_DIR, 'icu_words.txt')
-# ENGLISH_WORDS_PATH = os.path.join(CURRENT_DIR, 'english_words.txt')
-# KHMER_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'khmer_dictionary.xlsx')
-# ENGLISH_DICTIONARY_PATH = os.path.join(CURRENT_DIR, 'english_dictionary.tsv')
-
+import csv
 import pkg_resources
+from typing import List, Dict
 
-KHMER_WORDS_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/icu_words.txt')
-ENGLISH_WORDS_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_words.txt')
-KHMER_DICTIONARY_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/khmer_dictionary.xlsx')
-ENGLISH_DICTIONARY_PATH = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_dictionary.tsv')
+KHMER_WORDS_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'corpus/icu_words.txt')
+ENGLISH_WORDS_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_words.txt')
+KHMER_DICTIONARY_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'corpus/khmer_dictionary.xlsx')
+KHMER_DICTIONARY_TSV_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'corpus/khmer_dictionary.tsv')
+ENGLISH_DICTIONARY_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'corpus/english_dictionary.tsv')
 
+def load_english_dictionary(file_path: str) -> List[Dict[str, str]]:
+    dictionary: List[Dict[str, str]] = []
+    with open(file_path, 'r', encoding='utf-8-sig') as file:
+        reader = csv.DictReader(file, delimiter='\t')
+        for row in reader:
+            dictionary.append(row)
+    return dictionary
 
-def load_khmer_dictionary(file_path):
-    df = pd.read_excel(file_path)
-    return df
+def load_khmer_dictionary(file_path: str) -> List[Dict[str, str]]:
+    dictionary: List[Dict[str, str]] = []
+    with open(file_path, 'r', encoding='utf-8-sig') as file:
+        reader = csv.DictReader(file, delimiter='\t')
+        for row in reader:
+            dictionary.append(row)
+    return dictionary
 
-def load_english_dictionary(file_path):
-    df = pd.read_csv(file_path, delimiter='\t')
-    return df
-
-def en2en_dict(word):
-    dictionary_df = load_english_dictionary(ENGLISH_DICTIONARY_PATH)
+def en2en_dict(word: str) -> List[Dict[str, str]]:
+    dictionary: List[Dict[str, str]] = load_english_dictionary(ENGLISH_DICTIONARY_PATH)
     word = word.lower()
-    dictionary_df['word'] = dictionary_df['word'].str.lower()
-    
-    entries = dictionary_df[dictionary_df['word'] == word]
-    result = []
-    for _, row in entries.iterrows():
-        entry = {
-            'word': row['word'],
-            'pos': row['pos'],
-            'definition': row['definition'],
-        }
-        result.append(entry)
+    entries: List[Dict[str, str]] = [entry for entry in dictionary if entry['word'].lower() == word]
+    result: List[Dict[str, str]] = []
+    for entry in entries:
+        result.append({
+            'word': entry['word'],
+            'pos': entry['pos'],
+            'definition': entry['definition']
+        })
     return result
 
-def km2km_dict(word):
-    dictionary_df = load_khmer_dictionary(KHMER_DICTIONARY_PATH)
-    entries = dictionary_df[dictionary_df['t_main'] == word]
-    result = []
-    for _, row in entries.iterrows():
-        entry = {
-            'word': row['t_main'],
-            'pronounce': row['t_pron'],
-            'pos': row['t_pos'],
-            'definition': row['t_exp'],
-            'example': row['t_exam']
-        }
-        result.append(entry)
+def km2km_dict(word: str) -> List[Dict[str, str]]:
+    dictionary: List[Dict[str, str]] = load_khmer_dictionary(KHMER_DICTIONARY_TSV_PATH)
+    entries: List[Dict[str, str]] = [entry for entry in dictionary if entry['t_main'] == word]
+    result: List[Dict[str, str]] = []
+    for entry in entries:
+        result.append({
+            'word': entry['t_main'],
+            'pronounce': entry['t_pron'],
+            'pos': entry['t_pos'],
+            'definition': entry['t_exp'],
+            'example': entry['t_exam']
+        })
     return result
 
-def km_words():
+def km_words() -> List[str]:
     with open(KHMER_WORDS_PATH, 'r', encoding='utf-8-sig') as file:
-        words = [line.strip() for line in file if line.strip()]
+        words: List[str] = [line.strip() for line in file if line.strip()]
     return words
 
-def en_words():
+def en_words() -> List[str]:
     with open(ENGLISH_WORDS_PATH, 'r', encoding='utf-8-sig') as file:
-        words = [line.strip() for line in file if line.strip()]
+        words: List[str] = [line.strip() for line in file if line.strip()]
     return words

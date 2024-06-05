@@ -9,14 +9,13 @@ def read(*paths):
 requirements = [
     "tha",
     "regex",
-    "pandas",
-    "openpyxl",
+    "khmercut",
     "khmerpronounce",
 ]
 
 setup(
     name='pykhmernlp',
-    version='0.0.6',
+    version='0.0.1',
     python_requires=">=3.7",
     packages=find_packages(exclude=["tests", "tests.*"]),
     package_data={
@@ -25,10 +24,10 @@ setup(
             'corpus/english_words.txt',
             'corpus/khmer_dictionary.xlsx',
             'corpus/english_dictionary.tsv',
-            'address_data/phum/*.txt',
-            'address_data/khum/*.txt',
-            'address_data/srok/*.txt',
-            'address_data/provice/province.txt',
+            'address/address_data/phum.tsv',
+            'address/address_data/khum.tsv',
+            'address/address_data/srok.tsv',
+            'address/address_data/province.txt',
         ],
     },
     include_package_data=True,

@@ -1,55 +1,60 @@
 import os
+import csv
 from pathlib import Path
-
-
-# Get the directory of the current script
-# CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# PHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'phum')
-# KHUM_PATH = os.path.join(CURRENT_DIR, 'address_data', 'khum')
-# SROK_PATH = os.path.join(CURRENT_DIR, 'address_data', 'srok')
-# PROVINCE_PATH = os.path.join(CURRENT_DIR, 'address_data', 'province')
-
+from typing import List, Dict, Union
 
 import pkg_resources
 
-PHUM_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/phum/')
-KHUM_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/khum/')
-SROK_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/srok/')
-PROVINCE_PATH = pkg_resources.resource_filename('pykhmernlp', 'address_data/provice/provice.txt')
+PHUM_TSV_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'address/address_data/phum.tsv')
+KHUM_TSV_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'address/address_data/khum.tsv')
+SROK_TSV_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'address/address_data/srok.tsv')
+PROVINCE_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'address/address_data/province.txt')
 
 
-def _list_data(path, province='all'):
+def _load_tsv_data(tsv_path: str) -> Dict[str, List[str]]:
+    data: Dict[str, List[str]] = {}
+    with open(tsv_path, 'r', encoding='utf-8') as tsv_file:
+        reader = csv.reader(tsv_file, delimiter='\t')
+        next(reader)  # Skip header
+        for row in reader:
+            file_base_name, line = row
+            if file_base_name not in data:
+                data[file_base_name] = []
+            data[file_base_name].append(line)
+    return data
+
+
+PHUM_DATA: Dict[str, List[str]] = _load_tsv_data(PHUM_TSV_PATH)
+KHUM_DATA: Dict[str, List[str]] = _load_tsv_data(KHUM_TSV_PATH)
+SROK_DATA: Dict[str, List[str]] = _load_tsv_data(SROK_TSV_PATH)
+
+
+def _list_data(data: Dict[str, List[str]], province: str = 'all') -> List[str]:
     """
     Helper function to list all data from a specified path and filter by province name.
 
     Args:
-        path (str): The directory path to list data from.
+        data (dict): The data dictionary to list data from.
         province (str): The province name to filter by. If 'all', list all data.
 
     Returns:
         List[str]: A list of data.
     """
-    data = []
     if province == 'all':
-        for filename in os.listdir(path):
-            if filename.endswith('.txt'):
-                with open(os.path.join(path, filename), 'r', encoding='utf-8-sig') as file:
-                    data.extend([line.strip() for line in file if line.strip()])
+        result: List[str] = []
+        for lines in data.values():
+            result.extend(lines)
+        return result
     else:
-        province_file = f"{province}.txt"
-        province_path = os.path.join(path, province_file)
-        if os.path.isfile(province_path):
-            with open(province_path, 'r', encoding='utf-8-sig') as file:
-                data = [line.strip() for line in file if line.strip()]
+        if province in data:
+            return data[province]
         else:
             raise ValueError(f"No data available for the province: {province}")
+        
 
-    return data
-
-def km_villages(province='all'):
+def km_villages(province: str = 'all') -> List[str]:
     """
-    List all data from the phum folder and filter by province name.
+    List all data from the phum data and filter by province name.
 
     Args:
         province (str): The province name to filter by. If 'all', list all data.
@@ -57,11 +62,12 @@ def km_villages(province='all'):
     Returns:
         List[str]: A list of villages.
     """
-    return _list_data(PHUM_PATH, province)
+    return _list_data(PHUM_DATA, province)
 
-def km_commune(province='all'):
+
+def km_commune(province: str = 'all') -> List[str]:
     """
-    List all data from the khum folder and filter by province name.
+    List all data from the khum data and filter by province name.
 
     Args:
         province (str): The province name to filter by. If 'all', list all data.
@@ -69,11 +75,12 @@ def km_commune(province='all'):
     Returns:
         List[str]: A list of communes.
     """
-    return _list_data(KHUM_PATH, province)
+    return _list_data(KHUM_DATA, province)
 
-def km_districts(province='all'):
+
+def km_districts(province: str = 'all') -> List[str]:
     """
-    List all data from the srok folder and filter by province name.
+    List all data from the srok data and filter by province name.
 
     Args:
         province (str): The province name to filter by. If 'all', list all data.
@@ -81,15 +88,16 @@ def km_districts(province='all'):
     Returns:
         List[str]: A list of districts.
     """
-    return _list_data(SROK_PATH, province)
+    return _list_data(SROK_DATA, province)
 
-def km_provinces():
+
+def km_provinces() -> List[str]:
     """
-    List all provinces from the province folder.
+    List all provinces from the province data.
 
     Returns:
         List[str]: A list of provinces.
     """
-    with open(PROVINCE_PATH + '/' + 'province.txt', 'r', encoding='utf-8-sig') as file:
-        provinces = [line.strip() for line in file if line.strip()]
+    with open(PROVINCE_PATH, 'r', encoding='utf-8-sig') as file:
+        provinces: List[str] = [line.strip() for line in file if line.strip()]
     return provinces
