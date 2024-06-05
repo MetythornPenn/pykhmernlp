@@ -22,7 +22,7 @@ pip install -e .
 pip install pykhmernlp
 ```
 
-## Features 
+## Features
 
 - Corpus
     + Khmer words
