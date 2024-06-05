@@ -16,7 +16,7 @@ serve-docs:
 
 build:
 	rm -rf build dist
-	python setup.py sdist bdist_wheel
+	# python setup.py sdist bdist_wheel
 
 push:
 	twine upload dist/*
