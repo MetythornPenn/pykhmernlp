@@ -20,7 +20,6 @@ pip install -e .
 
 ```shell
 pip install pykhmernlp
-# *Noted: There's some errors with pip install & I'm fixing it.
 ```
 
 ## Features 
