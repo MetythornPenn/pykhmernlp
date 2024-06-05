@@ -4,7 +4,6 @@ site_name: PyKhmerNLP
 site_description: Collection of Khmer Language Toolkits.
 site_url: https://metythornpenn.github.io/pykhmernlp/
 
-
 theme:
   name: material
   custom_dir: docs/
@@ -88,3 +87,4 @@ markdown_extensions:
   pymdownx.tilde: null
   attr_list: null
   md_in_html: null
+

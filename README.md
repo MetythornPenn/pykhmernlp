@@ -8,18 +8,18 @@ Check out our details documentations [here](https://metythornpenn.github.io/pykh
 
 ## Installation
 
+### Install from [PYPI](https://pypi.org/project/pykhmernlp/)
+
+```shell
+pip install pykhmernlp
+```
+
 ### Install from Source
 
 ```shell
 git clone https://github.com/MetythornPenn/pykhmernlp.git
 cd pykhmernlp
 pip install -e .
-```
-
-### Install from [PYPI](https://pypi.org/project/pykhmernlp/)
-
-```shell
-pip install pykhmernlp
 ```
 
 ## Features
