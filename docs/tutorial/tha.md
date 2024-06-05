@@ -1,148 +1,261 @@
+[Tha](https://github.com/seanghay/tha) : Khmer Text Normalization and Verbalization Toolkit.
 
-# Tha
 
-## Load all functions from pykhmernlp.tha
-
-```Python hl_lines="2"
-from pykhmernlp.tha import (
-    normalize,
-    process_phone_numbers,
-    process_urls,
-    process_time,
-    process_date,
-    process_hashtags,
-    process_ascii_lines,
-    process_license_plate,
-    process_cardinals,
-    process_decimals,
-    process_ordinals,
-    process_currency,
-    process_parenthesis,
-    process_repeater
-)
-```
 
 ## Normalize
 
-```Python hl_lines="2"
-assert normalize("មិន\u200bឲ្យ") == "មិនឱ្យ"
+    Normalize text by removing zero-width spaces.
+
+    Args:
+        text (str): The text to normalize.
+
+    Returns:
+        str: The normalized text.
+
+```python
+from pykhmernlp.tha import normalize
+text_normalize = "មិន\u200bឲ្យ"
+
+print("Original text:", text_normalize)
+print(normalize(text_normalize))  # Output: "មិនឱ្យ"
 ```
 
 ## Phone Numbers
 
-```Python hl_lines="2"
-assert process_phone_numbers("010123123", chunk_size=2) == "0▁10▁12▁31▁23"
-assert process_phone_numbers("010123123", chunk_size=3) == "0▁10▁123▁123"
-assert process_phone_numbers("0961231234", chunk_size=3) == "0▁96▁123▁1234"
+    Process phone numbers in the text by chunking digits with a specified chunk size.
+
+    Args:
+        text (str): The text containing phone numbers.
+        chunk_size (int): The size of each digit chunk.
+
+    Returns:
+        str: The processed text with phone numbers chunked.
+
+```python
+from pykhmernlp.tha import process_phone_numbers
+text_phone_numbers = "010123123"
+
+print("Original text:", text_phone_numbers)
+print(process_phone_numbers(text_phone_numbers, chunk_size=2))  # Output: "0▁10▁12▁31▁23"
 ```
 
 ## URLs and emails
 
-```Python hl_lines="2"
-assert process_urls("example@gmail.com") == "example at g▁mail dot com"
-assert process_urls("https://google.com") == "google dot com"
-assert process_urls("http://google.com") == "google dot com"
-assert process_urls("google.com") == "google dot com"
-assert process_urls("google.gov.kh") == "google dot gov dot k▁h"
-assert process_urls("google.com.kh") == "google dot com dot k▁h"
+    Process URLs and emails in the text by replacing them with tokens.
+
+    Args:
+        text (str): The text containing URLs and emails.
+
+    Returns:
+        str: The processed text with URLs and emails replaced.
+
+```python
+from pykhmernlp.tha import process_urls
+text_urls = "https://google.com"
+
+print("Original text:", text_urls)
+print(process_urls(text_urls))  # Output: "google dot com"
 ```
 
 ## Time
 
-```Python hl_lines="2"
-assert process_time("10:23AM") == "10 23▁A▁M"
-assert process_time("10:23PM") == "10 23▁P▁M"
-assert process_time("1:23PM") == "1 23▁P▁M"
+    Process time expressions in the text by formatting them.
+
+    Args:
+        text (str): The text containing time expressions.
+
+    Returns:
+        str: The processed text with time expressions formatted.
+
+```python
+from pykhmernlp.tha import process_time
+text_time = "10:23AM"
+
+print("Original text:", text_time)
+print(process_time(text_time))  # Output: "10 23▁A▁M"
 ```
 
 ## Date
 
-```Python hl_lines="2"
-assert process_date("2024-01-02") == "2024 01 02"
-assert process_date("01-02-2034") == "01 02 2034"
+    Process date expressions in the text by formatting them.
+
+    Args:
+        text (str): The text containing date expressions.
+
+    Returns:
+        str: The processed text with date expressions formatted.
+
+```python
+from pykhmernlp.tha import process_date
+text_date = "2024-01-02"
+
+print("Original text:", text_date)
+print(process_date(text_date))  # Output: "2024 01 02"
 ```
 
 ## Hashtags
 
-```Python hl_lines="2"
-assert process_hashtags("Hello world #this_will_remove hello") == "Hello world  hello"
-assert process_hashtags("Hello world #លុប hello") == "Hello world  hello"
-assert process_hashtags("Hello world #លុប1234 hello") == "Hello world  hello"
+    Process hashtags in the text by removing them.
+
+    Args:
+        text (str): The text containing hashtags.
+
+    Returns:
+        str: The processed text with hashtags removed.
+
+```python
+from pykhmernlp.tha import process_hashtags
+text_hashtags = "Hello world #this_will_remove hello"
+
+print("Original text:", text_hashtags)
+print(process_hashtags(text_hashtags))  # Output: "Hello world  hello"
 ```
 
 ## ASCII Lines
 
-```Python hl_lines="2"
-assert process_ascii_lines("Remove --- asdasd") == "Remove  asdasd"
-assert process_ascii_lines("Remove\n###\nasdasd") == "Remove\n\nasdasd"
+    Process ASCII lines in the text by removing them.
+
+    Args:
+        text (str): The text containing ASCII lines.
+
+    Returns:
+        str: The processed text with ASCII lines removed.
+
+```python
+from pykhmernlp.tha import process_ascii_lines
+text_ascii_lines = "Remove --- asdasd"
+
+print("Original text:", text_ascii_lines)
+print(process_ascii_lines(text_ascii_lines))  # Output: "Remove  asdasd"
 ```
 
 ## Cambodia License Plate
 
-```Python hl_lines="2"
-assert process_license_plate("1A 1234") == "1 A 12▁34"
-assert process_license_plate("1A 4444") == "1 A ការ៉េ4"
+    Process Cambodia license plate numbers in the text by formatting them.
+
+    Args:
+        text (str): The text containing Cambodia license plate numbers.
+
+    Returns:
+        str: The processed text with license plate numbers formatted.
+
+```python
+from pykhmernlp.tha import process_license_plate
+text_license_plate = "1A 1234"
+
+print("Original text:", text_license_plate)
+print(process_license_plate(text_license_plate))  # Output: "1 A 12▁34"
 ```
 
 ## Number - Cardinals
 
-```Python hl_lines="2"
-assert process_cardinals("1234") == "មួយពាន់▁ពីររយ▁សាមសិបបួន"
-assert process_cardinals("1") == "មួយ"
-assert process_cardinals("1▁2") == "មួយ▁ពីរ"
-assert process_cardinals("-1") == "ដក▁មួយ"
-assert process_cardinals("10") == "ដប់"
-assert process_cardinals("15") == "ដប់ប្រាំ"
-assert process_cardinals("100") == "មួយរយ"
-assert process_cardinals("10000") == "មួយម៉ឺន"
-assert process_cardinals("10000.234") == "មួយម៉ឺន.ពីររយ▁សាមសិបបួន"
-assert process_cardinals("-10000.234") == "ដក▁មួយម៉ឺន.ពីររយ▁សាមសិបបួន"
-assert process_cardinals("-10000,234") == "ដក▁មួយម៉ឺន,ពីររយ▁សាមសិបបួន"
+    Process cardinal numbers in the text by converting them to Khmer words.
+
+    Args:
+        text (str): The text containing cardinal numbers.
+
+    Returns:
+        str: The processed text with cardinal numbers converted to Khmer words.
+
+```python
+from pykhmernlp.tha import process_cardinals
+text_cardinals = "1234"
+
+print("Original text:", text_cardinals)
+print(process_cardinals(text_cardinals))  # Output: "មួយពាន់▁ពីររយ▁សាមសិបបួន"
 ```
 
 ## Number - Decimals
 
-```Python hl_lines="2"
-assert process_decimals("123.324") == "មួយរយ▁ម្ភៃបី▁ចុច▁បីរយ▁ម្ភៃបួន"
-assert process_decimals("123.001") == "មួយរយ▁ម្ភៃបី▁ចុច▁សូន្យ▁សូន្យ▁មួយ"
-assert process_decimals("-123.0012") == "ដក▁មួយរយ▁ម្ភៃបី▁ចុច▁សូន្យ▁សូន្យ▁ដប់ពីរ"
-assert process_decimals("-123,0012") == "ដក▁មួយរយ▁ម្ភៃបី▁ក្បៀស▁សូន្យ▁សូន្យ▁ដប់ពីរ"
+    Process decimal numbers in the text by converting them to Khmer words.
+
+    Args:
+        text (str): The text containing decimal numbers.
+
+    Returns:
+        str: The processed text with decimal numbers converted to Khmer words.
+
+```python
+from pykhmernlp.tha import process_decimals
+text_decimals = "123.324"
+
+print("Original text:", text_decimals)
+print(process_decimals(text_decimals)) # Output: "មួយរយ▁ម្ភៃបី▁ចុច▁បីរយ▁ម្ភៃបួន"
 ```
 
 ## Number - Ordinals
 
-```Python hl_lines="2"
-assert process_ordinals("5th") == "ទី▁ប្រាំ"
-assert process_ordinals("3rd") == "ទី▁បី"
-assert process_ordinals("1st") == "ទី▁មួយ"
-assert process_ordinals("10th") == "ទី▁ដប់"
-assert process_ordinals("10") == "10"
+    Process ordinal numbers in the text by converting them to Khmer words.
+
+    Args:
+        text (str): The text containing ordinal numbers.
+
+    Returns:
+        str: The processed text with ordinal numbers converted to Khmer words.
+
+```python
+from pykhmernlp.tha import process_ordinals
+text_ordinals = "5th"
+
+print("Original text:", text_ordinals)
+print(process_ordinals(text_ordinals))  # Output: "ទី▁ប្រាំ"
 ```
 
 ## Number - Currency
 
-```Python hl_lines="2"
-assert process_currency("$100.01") == "មួយរយដុល្លារ▁មួយសេន"
-assert process_currency("$100") == "មួយរយ▁ដុល្លារ"
-# assert process_currency("100$") == "មួយរយដុល្លារ"
-# assert process_currency("100៛") == "មួយរយរៀល"
-# assert process_currency("100.32៛") == "មួយរយ▁ចុច▁សាមសិបពីររៀល"
-# assert process_currency("100.0032៛") == "មួយរយ▁ចុច▁សូន្យ▁សូន្យ▁សាមសិបពីររៀល"
+    Process currency expressions in the text by converting them to Khmer words.
+
+    Args:
+        text (str): The text containing currency expressions.
+
+    Returns:
+        str: The processed text with currency expressions converted to Khmer words.
+
+```python
+from pykhmernlp.tha import process_currency
+text_currency = "$100"
+
+print("Original text:", text_currency)
+print(process_currency(text_currency))  # Output: "មួយរយដុល្លារ▁មួយសេន"
 ```
 
 ## Parenthesis
 
-```Python hl_lines="2"
-assert process_parenthesis("Hello (this will be ignored) world") == "Hello world"
+    Process parenthesis in the text by removing them.
+
+    Args:
+        text (str): The text containing parenthesis.
+
+    Returns:
+        str: The processed text with parenthesis removed.
+
+```python
+from pykhmernlp.tha import process_parenthesis
+text_parenthesis = "Hello (this will be ignored) world"
+
+print("Original text:", text_parenthesis)
+print(process_parenthesis(text_parenthesis))  # Output: "Hello world"
+```
 
 ## Iteration Mark
+
+    """
+    Process repeated words or phrases in the text by replacing them with a single instance.
+
+    Args:
+        text (str): The text containing repeated words or phrases.
+        tokenizer: A function used for tokenization.
+
+    Returns:
+        str: The processed text with repeated words or phrases replaced.
+    """
+
+```python
+from pykhmernlp.tha import process_repeater
+text_repeater = "គាត់បានទៅបន្ត
+
 def fake_tokenizer(_):
     return ["គាត់", "បាន", "ទៅ", "បន្តិច", "ម្ដង"]
 
-assert process_repeater("គាត់បានទៅបន្តិចម្ដងៗហើយ", tokenizer=fake_tokenizer) == "គាត់បានទៅបន្តិចម្ដង▁បន្តិចម្ដងហើយ"
-
-print("All tests passed!")
-
+process_repeater(text_repeater, tokenizer=fake_tokenizer) # Output: "គាត់បានទៅបន្តិចម្ដង▁បន្តិចម្ដងហើយ"
 ```
-
-::: pykhmernlp.tha

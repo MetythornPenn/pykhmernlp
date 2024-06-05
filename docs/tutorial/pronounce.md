@@ -1,6 +1,6 @@
-### Pronounce 
+[Khmer Pronounce](https://github.com/seanghay/khmerpronounce) A Khmer pronounciation toolkit trained on KhmerDictionary 2022 by Royal Academy of Cambodia (RAC) with Phonetisaurus from Seanghay.
 
-```Python hl_lines="2"
+```Python
 from pykhmernlp.pronounce import pronounce
 
 result1 = pronounce("សម្ដេចបវរធិបតី")
@@ -13,4 +13,4 @@ print(result2)
 
 ```
 
-::: pykhmernlp.pronounce
+<!-- ::: pykhmernlp.pronounce -->

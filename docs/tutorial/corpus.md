@@ -1,7 +1,9 @@
 
-### Corpus
+## Khmer words
+    Load a list of Khmer words from ICU data.
 
-#### Khmer words
+    Returns:
+        List[str]: A list of Khmer words.
 
 ```python
 from pykhmernlp.corpus import km_words
@@ -14,7 +16,13 @@ print(km_words[:100])
 # ['ក', 'កក', 'កកកុញ', 'កកកុះ', ...]
 ```
 
-#### English Word
+## English Word
+
+    Load a list of Khmer words nltk library.
+
+    Returns:
+        List[str]: A list of Khmer words.
+
 
 ```python
 from pykhmernlp.corpus import en_words
@@ -28,8 +36,22 @@ print(en_words[:100])
 # ['elcaja', 'problockade', 'chalkiness',...]
 ```
 
+## Khmer to Khmer Dictionary
 
-#### Khmer to Khmer Dictionary 
+    Search for a Khmer word in the Khmer dictionary.
+
+    Args:
+        word (str): The Khmer word to search for.
+
+    Returns:
+        List[Dict[str, str]]: A list of dictionaries representing entries in the Khmer dictionary
+                               corresponding to the provided word.
+                               Each dictionary contains keys for 
+                               'word' (main word), 
+                               'pronounce' (pronunciation),
+                               'pos' (part of speech), 
+                               'definition',
+                               'example'.
 
 ```python
 from pykhmernlp.corpus import km2km_dict
@@ -48,7 +70,20 @@ print(entries)
 
 ```
 
-#### English to English Dictionary 
+## English to English Dictionary 
+
+    Search for an English word in the English dictionary.
+
+    Args:
+        word (str): The English word to search for.
+
+    Returns:
+        List[Dict[str, str]]: A list of dictionaries representing entries in the English dictionary
+                               corresponding to the provided word.
+                               Each dictionary contains keys for 
+                               'word', 
+                               'pos' (part of speech),
+                               'definition'
 
 ```python
 from pykhmernlp.corpus import en2en_dict
@@ -63,5 +98,3 @@ print(entries)
 #   'definition': 'A collection of sheets of paper, or similar material....
 # }]
 ```
-
-::: pykhmernlp.corpus
