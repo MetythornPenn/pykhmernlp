@@ -1,7 +1,8 @@
-name: Upload package to PyPI
+name: PyPI
 
 on:
   push
+
   # release:
   #   types: [created]
 
