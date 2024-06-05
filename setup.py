@@ -22,7 +22,7 @@ setup(
         'pykhmernlp': [
             'corpus/icu_words.txt',
             'corpus/english_words.txt',
-            'corpus/khmer_dictionary.xlsx',
+            'corpus/khmer_dictionary.tsv',
             'corpus/english_dictionary.tsv',
             'address/address_data/phum.tsv',
             'address/address_data/khum.tsv',
