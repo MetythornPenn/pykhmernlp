@@ -252,7 +252,7 @@ print(process_parenthesis(text_parenthesis))  # Output: "Hello world"
 
 ```python
 from pykhmernlp.tha import process_repeater
-text_repeater = "គាត់បានទៅបន្ត
+text_repeater = "គាត់បានទៅបន្តិចម្ដងៗហើយ"
 
 def fake_tokenizer(_):
     return ["គាត់", "បាន", "ទៅ", "បន្តិច", "ម្ដង"]

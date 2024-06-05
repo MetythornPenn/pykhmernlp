@@ -1,4 +1,10 @@
-## Installation
+# Installation
+
+### Install from PYPI
+
+```shell
+pip install pykhmernlp
+```
 
 ### Install from Source
 
@@ -6,11 +12,4 @@
 git clone https://github.com/MetythornPenn/pykhmernlp.git
 cd pykhmernlp
 pip install -e .
-```
-
-### Install from PYPI
-
-```shell
-# *Noted: There's some errors with pip install & I'm fixing it.
-pip install pykhmernlp
 ```
