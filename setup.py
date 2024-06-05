@@ -15,7 +15,7 @@ requirements = [
 
 setup(
     name='pykhmernlp',
-    version='0.0.14',
+    version='0.0.15',
     python_requires=">=3.7",
     packages=find_packages(exclude=["tests", "tests.*"]),
     package_data={

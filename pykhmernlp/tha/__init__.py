@@ -1,5 +1,5 @@
 
-import tha
+import tha as tha_seanghay
 
 
 def normalize(text: str) -> str:
@@ -12,7 +12,7 @@ def normalize(text: str) -> str:
     Returns:
         str: The normalized text.
     """
-    return tha.normalize.processor(text)
+    return tha_seanghay.normalize.processor(text)
 
 
 def process_phone_numbers(text: str, chunk_size: int = 2) -> str:
@@ -27,7 +27,7 @@ def process_phone_numbers(text: str, chunk_size: int = 2) -> str:
         str: The processed text with phone numbers chunked.
     """
 
-    return tha.phone_numbers.processor(text, chunk_size=chunk_size)
+    return tha_seanghay.phone_numbers.processor(text, chunk_size=chunk_size)
 
 
 def process_urls(text: str) -> str:
@@ -40,7 +40,7 @@ def process_urls(text: str) -> str:
     Returns:
         str: The processed text with URLs and emails replaced.
     """
-    return tha.urls.processor(text)
+    return tha_seanghay.urls.processor(text)
 
 
 def process_time(text: str) -> str:
@@ -53,7 +53,7 @@ def process_time(text: str) -> str:
     Returns:
         str: The processed text with time expressions formatted.
     """
-    return tha.datetime.time_processor(text)
+    return tha_seanghay.datetime.time_processor(text)
 
 
 
@@ -67,7 +67,7 @@ def process_date(text: str) -> str:
     Returns:
         str: The processed text with date expressions formatted.
     """
-    return tha.datetime.date_processor(text)
+    return tha_seanghay.datetime.date_processor(text)
 
 
 def process_hashtags(text: str) -> str:
@@ -80,7 +80,7 @@ def process_hashtags(text: str) -> str:
     Returns:
         str: The processed text with hashtags removed.
     """
-    return tha.hashtags.processor(text)
+    return tha_seanghay.hashtags.processor(text)
 
 
 def process_ascii_lines(text: str) -> str:
@@ -93,7 +93,7 @@ def process_ascii_lines(text: str) -> str:
     Returns:
         str: The processed text with ASCII lines removed.
     """
-    return tha.ascii_lines.processor(text)
+    return tha_seanghay.ascii_lines.processor(text)
 
 
 def process_license_plate(text: str) -> str:
@@ -107,7 +107,7 @@ def process_license_plate(text: str) -> str:
         str: The processed text with license plate numbers formatted.
     """
 
-    return tha.license_plate.processor(text)
+    return tha_seanghay.license_plate.processor(text)
 
 
 def process_cardinals(text: str) -> str:
@@ -121,7 +121,7 @@ def process_cardinals(text: str) -> str:
         str: The processed text with cardinal numbers converted to Khmer words.
     """
 
-    return tha.cardinals.processor(text)
+    return tha_seanghay.cardinals.processor(text)
 
 
 def process_decimals(text: str) -> str:
@@ -134,7 +134,7 @@ def process_decimals(text: str) -> str:
     Returns:
         str: The processed text with decimal numbers converted to Khmer words.
     """
-    return tha.decimals.processor(text)
+    return tha_seanghay.decimals.processor(text)
 
 
 def process_ordinals(text: str) -> str:
@@ -147,7 +147,7 @@ def process_ordinals(text: str) -> str:
     Returns:
         str: The processed text with ordinal numbers converted to Khmer words.
     """
-    return tha.ordinals.processor(text)
+    return tha_seanghay.ordinals.processor(text)
 
 
 def process_currency(text: str) -> str:
@@ -161,7 +161,7 @@ def process_currency(text: str) -> str:
         str: The processed text with currency expressions converted to Khmer words.
     """
 
-    return tha.currency.processor(text)
+    return tha_seanghay.currency.processor(text)
 
 
 def process_parenthesis(text: str) -> str:
@@ -175,7 +175,7 @@ def process_parenthesis(text: str) -> str:
         str: The processed text with parenthesis removed.
     """
 
-    return tha.parenthesis.processor(text)
+    return tha_seanghay.parenthesis.processor(text)
 
 
 def process_repeater(text: str, tokenizer) -> str:
@@ -190,4 +190,4 @@ def process_repeater(text: str, tokenizer) -> str:
         str: The processed text with repeated words or phrases replaced.
     """
 
-    return tha.repeater.processor(text, tokenizer=tokenizer)
+    return tha_seanghay.repeater.processor(text, tokenizer=tokenizer)
