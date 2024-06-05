@@ -16,7 +16,7 @@ cd pykhmernlp
 pip install -e .
 ```
 
-### Install from PYPI
+### Install from [PYPI](https://pypi.org/project/pykhmernlp/)
 
 ```shell
 pip install pykhmernlp

@@ -7,15 +7,15 @@ def read(*paths):
         return f.read()
     
 requirements = [
-    "tha",
     "regex",
+    "tha",
     "khmercut",
     "khmerpronounce",
 ]
 
 setup(
     name='pykhmernlp',
-    version='0.0.9',
+    version='0.0.10',
     python_requires=">=3.7",
     packages=find_packages(exclude=["tests", "tests.*"]),
     package_data={

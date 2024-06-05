@@ -10,6 +10,7 @@ ENGLISH_DICTIONARY_PATH: str = pkg_resources.resource_filename('pykhmernlp', 'co
 
 def load_english_dictionary(file_path: str) -> List[Dict[str, str]]:
     dictionary: List[Dict[str, str]] = []
+    csv.field_size_limit(100000000) 
     with open(file_path, 'r', encoding='utf-8-sig') as file:
         reader = csv.DictReader(file, delimiter='\t')
         for row in reader:
