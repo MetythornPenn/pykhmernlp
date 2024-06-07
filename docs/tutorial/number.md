@@ -13,9 +13,13 @@ from pykhmernlp.number import to_latin_num
 text = "abc ១២៣៤៥៦៧៨៩០8space៨៩"
 
 print("Original :", text)
-print("Normalize :"to_latin_num(text_normalize))  # Output: ""
-```
+print("Normalize :", to_latin_num(text))
 
+# Result 
+# Original : abc ១២៣៤៥៦៧៨៩០8space៨៩
+# Normalize : abc 12345678908space89
+
+```
 
 ## to_khmer_num
 
@@ -28,9 +32,13 @@ print("Normalize :"to_latin_num(text_normalize))  # Output: ""
         str: A string with Latin numbers converted to Khmer numbers.
 
 ```python
-from pykhmernlp.number import to_latin_num
+from pykhmernlp.number import to_khmer_num
 text = "abc ១២៣៤៥៦៧៨៩០8space៨៩"
 
 print("Original :", text)
-print("Normalize :"to_latin_num(text_normalize))  # Output: "ម"
+print("Normalize :", to_khmer_num(text))  
+
+# Result 
+# Original : abc ១២៣៤៥៦៧៨៩០8space៨៩
+# Normalize : abc ១២៣៤៥៦៧៨៩០៨space៨៩
 ```
